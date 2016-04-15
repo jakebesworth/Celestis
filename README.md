@@ -26,7 +26,7 @@ libssl-dev grep binutils zlibc libc6 libbz2-dev cmake subversion vim libboost-al
 
 3. First thing we should do is setup our directory structure
 
-..* Create user mangos and change login to them
+* Create user mangos and change login to them
 ```
 useradd -m -d /home/mangos -c "MANGoS" -g mangos mangos
 passwd mangos
@@ -34,7 +34,7 @@ su - mangos
 cd /home/mangos
 ```
 
---* Clone repositories
+* Clone repositories
 
 ```
 git clone git://github.com/cmangos/mangos-classic.git mangos
@@ -45,7 +45,7 @@ mkdir run build
 
 4. Now we can compile the build
 
-..* make
+* make
 ```
 cd build
 cmake ../mangos -DCMAKE_INSTALL_PREFIX=/home/mangos/run -DDEBUG=0
@@ -53,7 +53,7 @@ make
 make install
 ```
 
-..* config files
+* config files
 ```
 cp /home/mangos/mangos/src/mangosd/mangosd.conf.dist.in /home/mangos/run/etc/mangosd.conf
 cp /home/mangos/mangos/src/realmd/realmd.conf.dist.in /home/mangos/run/etc/realmd.conf
@@ -62,7 +62,7 @@ cp /home/mangos/mangos/src/game/AuctionHouseBot/ahbot.conf.dist.in /home/mangos/
 
 5. Extracting the map files
 
-..* This part is listed in [this section](https://github.com/cmangos/issues/wiki/Installation-Instructions#extract-files-from-the-client) of the guide. I would highly recomend just installing your WoW client on windows, and running those scripts to get your needed `vmaps maps dbc` folders. Note that the scripts seem not to include .exe extensions to files, which should be added. Also note you need to extract from a vanilla 1.12.1 client.
+* This part is listed in [this section](https://github.com/cmangos/issues/wiki/Installation-Instructions#extract-files-from-the-client) of the guide. I would highly recomend just installing your WoW client on windows, and running those scripts to get your needed `vmaps maps dbc` folders. Note that the scripts seem not to include .exe extensions to files, which should be added. Also note you need to extract from a vanilla 1.12.1 client.
 
 ```
 mv vmaps /home/mangos/run/
@@ -80,21 +80,21 @@ mysql -uroot -p realmd < /home/mangos/mangos/sql/base/realmd.sql
 
 7. Initializing the world
 
-..* Initialize Installer config
+* Initialize Installer config
 ```
 cd /home/mangos/classicdb
 ./InstallFullDB.sh
 vim InstallFullDB.config
 ```
 
-..* At this point add to the following lines:
+* At this point add to the following lines:
 
 ```
 CORE_PATH="/home/mangos/mangos"
 ACID_PATH="/home/mangos/acid"
 ```
 
-..* Install
+* Install
 ```
 ./InstallFullDB.sh
 cd ..
@@ -121,9 +121,9 @@ exit;
 
 11. Running the server
 
-..* This section gets a bit complicated due to the implementation I chose. When running the server you get access to a shell to do commands onto the server. For this I wanted to have a running detatchable SCREEN instance as to allow easy ssh access to the shell without disrupting the server.
+* This section gets a bit complicated due to the implementation I chose. When running the server you get access to a shell to do commands onto the server. For this I wanted to have a running detatchable SCREEN instance as to allow easy ssh access to the shell without disrupting the server.
 
-..* First we need to make 2 files to run our server
+* First we need to make 2 files to run our server
 
 * /home/mangos/realmd.sh
 ```
@@ -139,7 +139,7 @@ exit;
 /home/mangos/run/bin/mangosd -c /home/mangos/run/etc/mangosd.conf -a /home/mangos/run/etc/ahbot.conf
 ```
 
-..* Initial run of the server
+* Initial run of the server
 
 ```
 su - mangos
@@ -152,7 +152,7 @@ CTRL+A CTRL+D
 
 * From within the SCREEN session you can talk to the mangosd shell and do commands such as "account create"
 
-..* How to get back into our SCREEN session
+* How to get back into our SCREEN session
 
 ```
 su - mangos
