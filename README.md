@@ -1,0 +1,167 @@
+# Celestis 1.12.1 Server Overview
+
+## Introduction
+
+#### What is CMaNGOS
+
+[Wiki](https://github.com/cmangos/issues/wiki)
+
+#### What is Celestis
+
+Celestis is a fork of the CMaNGOS server emulation software with a guide to installation. Celestis is not changed much, but rather emphasis is put on hypothetical installation first which is what this guide is for. Celestis takes a look into hypothetical installation of a classic-server.
+
+## Hypothetical Installation
+
+This guide is mostly complete with a few changes listed below: [CMaNGOS Guide](https://github.com/cmangos/issues/wiki/Installation-Instructions)
+
+1. We'll be using an AWS t2.micro [EC2 instance](https://aws.amazon.com/ec2/instance-types/) which should allow probably 5-10 players with no issues
+
+2. We'll be using AWS Ubuntu 14.04.4 LTS build
+
+```
+sudo apt-get install build-essential gcc g++ automake git-core \
+autoconf make patch libmysql++-dev mysql-server libtool \
+libssl-dev grep binutils zlibc libc6 libbz2-dev cmake subversion vim libboost-all-dev
+```
+
+3. First thing we should do is setup our directory structure
+
+..* Create user mangos and change login to them
+```
+useradd -m -d /home/mangos -c "MANGoS" -g mangos mangos
+passwd mangos
+su - mangos
+cd /home/mangos
+```
+
+--* Clone repositories
+
+```
+git clone git://github.com/cmangos/mangos-classic.git mangos
+git clone git://github.com/ACID-Scripts/Classic.git acid
+git clone git://github.com/classicdb/database.git classicdb
+mkdir run build
+```
+
+4. Now we can compile the build
+
+..* make
+```
+cd build
+cmake ../mangos -DCMAKE_INSTALL_PREFIX=/home/mangos/run -DDEBUG=0
+make
+make install
+```
+
+..* config files
+```
+cp /home/mangos/mangos/src/mangosd/mangosd.conf.dist.in /home/mangos/run/etc/mangosd.conf
+cp /home/mangos/mangos/src/realmd/realmd.conf.dist.in /home/mangos/run/etc/realmd.conf
+cp /home/mangos/mangos/src/game/AuctionHouseBot/ahbot.conf.dist.in /home/mangos/run/etc/ahbot.conf
+```
+
+5. Extracting the map files
+
+..* This part is listed in [this section](https://github.com/cmangos/issues/wiki/Installation-Instructions#extract-files-from-the-client) of the guide. I would highly recomend just installing your WoW client on windows, and running those scripts to get your needed `vmaps maps dbc` folders. Note that the scripts seem not to include .exe extensions to files, which should be added. Also note you need to extract from a vanilla 1.12.1 client.
+
+```
+mv vmaps /home/mangos/run/
+mv maps /home/mangos/run/
+mv dbc /home/mangos/run/
+```
+
+6. Importing Databases
+
+```
+mysql -u root -p < /home/mangos/mangos/sql/create/db_create_mysql.sql
+mysql -u root -p mangos < /home/mangos/mangos/sql/base/mangos.sql
+mysql -uroot -p characters < /home/mangos/mangos/sql/base/characters.sql
+mysql -uroot -p realmd < /home/mangos/mangos/sql/base/realmd.sql
+
+7. Initializing the world
+
+..* Initialize Installer config
+```
+cd /home/mangos/classicdb
+./InstallFullDB.sh
+vim InstallFullDB.config
+```
+
+..* At this point add to the following lines:
+
+```
+CORE_PATH="/home/mangos/mangos"
+ACID_PATH="/home/mangos/acid"
+```
+
+..* Install
+```
+./InstallFullDB.sh
+cd ..
+```
+
+8. More database stuff
+
+```
+mysql -u root -p mangos < /home/mangos/mangos/sql/scriptdev2/scriptdev2.sql
+mysql -u root -p mangos < /home/mangos/acid/*.sql
+```
+
+9. Setting up your public ip address, and opening ports
+
+```
+mysql -u root
+USE realmd;
+SELECT * FROM realmlist;
+UPDATE realmlist set name="my server name", address="my public EC2 address";
+exit;
+```
+
+10. [Configuring your 1.12.1 WoW client](https://github.com/cmangos/issues/wiki/Installation-Instructions#configuring-your-wow-client)
+
+11. Running the server
+
+..* This section gets a bit complicated due to the implementation I chose. When running the server you get access to a shell to do commands onto the server. For this I wanted to have a running detatchable SCREEN instance as to allow easy ssh access to the shell without disrupting the server.
+
+..* First we need to make 2 files to run our server
+
+* /home/mangos/realmd.sh
+```
+#!/usr/bin/env sh
+
+/home/mangos/run/bin/realmd -c /home/mangos/run/etc/realmd.conf
+```
+
+* /home/mangos/mangosd.sh
+```
+#!/usr/bin/env sh
+
+/home/mangos/run/bin/mangosd -c /home/mangos/run/etc/mangosd.conf -a /home/mangos/run/etc/ahbot.conf
+```
+
+..* Initial run of the server
+
+```
+su - mangos
+script /dev/null
+screen
+./realmd.sh &
+./mangosd.sh
+CTRL+A CTRL+D
+```
+
+* From within the SCREEN session you can talk to the mangosd shell and do commands such as "account create"
+
+..* How to get back into our SCREEN session
+
+```
+su - mangos
+script /dev/null
+screen -r
+CTRL+A CTRL+D
+```
+
+[Creating first account](https://github.com/cmangos/issues/wiki/Installation-Instructions#creating-first-account)
+[First Login](https://github.com/cmangos/issues/wiki/Installation-Instructions#first-login)
+
+### We're done!
