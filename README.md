@@ -17,13 +17,11 @@ This guide is mostly complete with a few changes listed below: [CMaNGOS Guide](h
 1. We'll be using an AWS t2.micro [EC2 instance](https://aws.amazon.com/ec2/instance-types/) which should allow probably 5-10 players with no issues
 
 2. We'll be using AWS Ubuntu 14.04.4 LTS build
-
 ```
 sudo apt-get install build-essential gcc g++ automake git-core \
 autoconf make patch libmysql++-dev mysql-server libtool \
 libssl-dev grep binutils zlibc libc6 libbz2-dev cmake subversion vim libboost-all-dev
 ```
-
 3. First thing we should do is setup our directory structure
 
 * Create user mangos and change login to them
