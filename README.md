@@ -2,9 +2,8 @@
 
 **Table of Contents**
 
-- [Celestis 1.12.1 Server Overview](#celestis-1121-server-overview)
+- [Celestis 1.12.1 Server Overview](https://github.com/jakebesworth/Celestis/blob/master/README.md#celestis-1121-server-overview)
     - [Introduction](#)
-
             - [What is CMaNGOS](#)
 
             - [What is Celestis](#)
