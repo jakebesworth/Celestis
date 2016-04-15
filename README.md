@@ -1,7 +1,6 @@
 # Celestis 1.12.1 Server Overview
 
-Table of Contents
-=================
+## Table of Contents
 
   * [Celestis 1.12.1 Server Overview](#celestis-1121-server-overview)
     * [Introduction](#introduction)
