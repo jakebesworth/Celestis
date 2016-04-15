@@ -244,7 +244,7 @@ wine wow.exe
 
 #### Useful Addons
 
-* A really nice breakdown of useful addons can be found at this [forum](forum.twinstar.cz/showthread.php/91251-Useful-User-Experience-Addons-for-1-12)
+* A really nice breakdown of useful addons can be found at this [forum](http://forum.twinstar.cz/showthread.php/91251-Useful-User-Experience-Addons-for-1-12)
 
 My personal choices are:
 
