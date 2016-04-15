@@ -1,27 +1,28 @@
 # Celestis 1.12.1 Server Overview
 
-**Table of Contents**
+Table of Contents
+=================
 
-- [Celestis 1.12.1 Server Overview](https://github.com/jakebesworth/Celestis/blob/master/README.md#celestis-1121-server-overview)
-    - [Introduction](#)
-            - [What is CMaNGOS](#)
+  * [Celestis 1.12.1 Server Overview](#celestis-1121-server-overview)
+    * [Introduction](#introduction)
+        * [What is CMaNGOS](#what-is-cmangos)
+        * [What is Celestis](#what-is-celestis)
+    * [Hypothetical CMaNGOS Installation](#hypothetical-cmangos-installation)
+      * [Specific Guide](#specific-guide)
+      * [We're done!](#were-done)
+    * [WoW Client Installation Windows, OS X, GNU/Linux](#wow-client-installation-windows-os-x-gnulinux)
+        * [Windows](#windows)
+        * [OS X](#os-x)
+        * [GNU/Linux](#gnulinux)
+    * [WoW Addons](#wow-addons)
+        * [Downloading addons](#downloading-addons)
+        * [Installing Addons](#installing-addons)
+        * [Useful Addons](#useful-addons)
+    * [WoW Useful Commands](#wow-useful-commands)
+        * [Change password](#change-password)
+        * [GM Commands](#gm-commands)
 
-            - [What is Celestis](#)
-
-    - [Hypothetical CMaNGOS Installation](#)
-        - [Specific Guide](#)
-        - [We're done!](#)
-    - [WoW Client Installation Windows, OS X, GNU/Linux](#)
-            - [Windows](#)
-            - [OS X](#)
-            - [GNU/Linux](#)
-    - [WoW Addons](#)
-            - [Downloading addons](#)
-            - [Installing Addons](#)
-            - [Useful Addons](#)
-    - [WoW Useful Commands](#)
-            - [Change password](#)
-            - [GM Commands](#)
+Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
 ## Introduction
 
