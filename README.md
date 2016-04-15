@@ -14,15 +14,15 @@ Celestis is a fork of the CMaNGOS server emulation software with a guide to inst
 
 This guide is mostly complete with a few changes listed below: [CMaNGOS Guide](https://github.com/cmangos/issues/wiki/Installation-Instructions)
 
-1. We'll be using an AWS t2.micro [EC2 instance](https://aws.amazon.com/ec2/instance-types/) which should allow probably 5-10 players with no issues
+1) We'll be using an AWS t2.micro [EC2 instance](https://aws.amazon.com/ec2/instance-types/) which should allow probably 5-10 players with no issues
 
-2. We'll be using AWS Ubuntu 14.04.4 LTS build
+2) We'll be using AWS Ubuntu 14.04.4 LTS build
 ```
 sudo apt-get install build-essential gcc g++ automake git-core \
 autoconf make patch libmysql++-dev mysql-server libtool \
 libssl-dev grep binutils zlibc libc6 libbz2-dev cmake subversion vim libboost-all-dev
 ```
-3. First thing we should do is setup our directory structure
+3) First thing we should do is setup our directory structure
 
 * Create user mangos and change login to them
 ```
@@ -41,7 +41,7 @@ git clone git://github.com/classicdb/database.git classicdb
 mkdir run build
 ```
 
-4. Now we can compile the build
+4) Now we can compile the build
 
 * make
 ```
@@ -58,7 +58,7 @@ cp /home/mangos/mangos/src/realmd/realmd.conf.dist.in /home/mangos/run/etc/realm
 cp /home/mangos/mangos/src/game/AuctionHouseBot/ahbot.conf.dist.in /home/mangos/run/etc/ahbot.conf
 ```
 
-5. Extracting the map files
+5) Extracting the map files
 
 * This part is listed in [this section](https://github.com/cmangos/issues/wiki/Installation-Instructions#extract-files-from-the-client) of the guide. I would highly recomend just installing your WoW client on windows, and running those scripts to get your needed `vmaps maps dbc` folders. Note that the scripts seem not to include .exe extensions to files, which should be added. Also note you need to extract from a vanilla 1.12.1 client.
 
@@ -68,7 +68,7 @@ mv maps /home/mangos/run/
 mv dbc /home/mangos/run/
 ```
 
-6. Importing Databases
+6) Importing Databases
 
 ```
 mysql -u root -p < /home/mangos/mangos/sql/create/db_create_mysql.sql
@@ -77,7 +77,7 @@ mysql -uroot -p characters < /home/mangos/mangos/sql/base/characters.sql
 mysql -uroot -p realmd < /home/mangos/mangos/sql/base/realmd.sql
 ```
 
-7. Initializing the world
+7) Initializing the world
 
 * Initialize Installer config
 ```
@@ -99,14 +99,14 @@ ACID_PATH="/home/mangos/acid"
 cd ..
 ```
 
-8. More database stuff
+8) More database stuff
 
 ```
 mysql -u root -p mangos < /home/mangos/mangos/sql/scriptdev2/scriptdev2.sql
 mysql -u root -p mangos < /home/mangos/acid/*.sql
 ```
 
-9. Setting up your public ip address, and opening ports
+9) Setting up your public ip address, and opening ports
 
 ```
 mysql -u root
@@ -116,9 +116,16 @@ UPDATE realmlist set name="my server name", address="my public EC2 address";
 exit;
 ```
 
-10. [Configuring your 1.12.1 WoW client](https://github.com/cmangos/issues/wiki/Installation-Instructions#configuring-your-wow-client)
+* From within your EC2 instance Security Group add 2 inbound rules
 
-11. Running the server
+```
+Custom TCP Rule     TCP     3724        Anywhere        0.0.0.0/0
+Custom TCP Rule     TCP     8085        Anywhere        0.0.0.0/0
+```
+
+10) [Configuring your 1.12.1 WoW client](https://github.com/cmangos/issues/wiki/Installation-Instructions#configuring-your-wow-client)
+
+11) Running the server
 
 * This section gets a bit complicated due to the implementation I chose. When running the server you get access to a shell to do commands onto the server. For this I wanted to have a running detatchable SCREEN instance as to allow easy ssh access to the shell without disrupting the server.
 
