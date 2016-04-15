@@ -77,6 +77,7 @@ mysql -u root -p < /home/mangos/mangos/sql/create/db_create_mysql.sql
 mysql -u root -p mangos < /home/mangos/mangos/sql/base/mangos.sql
 mysql -uroot -p characters < /home/mangos/mangos/sql/base/characters.sql
 mysql -uroot -p realmd < /home/mangos/mangos/sql/base/realmd.sql
+```
 
 7. Initializing the world
 
