@@ -1,5 +1,26 @@
 # Celestis 1.12.1 Server Overview
 
+**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
+
+- [Celestis 1.12.1 Server Overview](#)
+    - [Introduction](#)
+            - [What is CMaNGOS](#)
+            - [What is Celestis](#)
+    - [Hypothetical CMaNGOS Installation](#)
+        - [Specific Guide](#)
+        - [We're done!](#)
+    - [WoW Client Installation Windows, OS X, GNU/Linux](#)
+            - [Windows](#)
+            - [OS X](#)
+            - [GNU/Linux](#)
+    - [WoW Addons](#)
+            - [Downloading addons](#)
+            - [Installing Addons](#)
+            - [Useful Addons](#)
+    - [WoW Useful Commands](#)
+            - [Change password](#)
+            - [GM Commands](#)
+
 ## Introduction
 
 #### What is CMaNGOS
