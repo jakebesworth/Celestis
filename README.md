@@ -210,4 +210,85 @@ wine wow.exe
 
 ## WoW Addons
 
+#### Downloading addons
+
+* [Here](http://www.vanilla-addons.com/dls/) is a decent website with many vanilla addons, it's a tad slow, but they work.
+
+#### Installing Addons
+
+* Very simple, extract your addon, and drag it into your WoW/Interface/AddOns directory
+* From the character screen bottom left you can edit and add your new addons
+
+#### Useful Addons
+
+* A really nice breakdown of useful addons can be found at this [forum](forum.twinstar.cz/showthread.php/91251-Useful-User-Experience-Addons-for-1-12)
+
+My personal choices are:
+
+* Atlas v1.8.1 (Map)
+* Bartender2 (Action Bars)
+* Questie (Quest helper - this is a necessity)
+* eCastingBar (Casting Bar - similar to quartz)
+
+Still looking for a Sexymap 1.12.1 but I'll keep looking.
+
+
 ## WoW Useful Commands
+
+#### Change password
+
+From within game, in the chat box type:
+
+```
+.account password <old-password> <new-password> <new-password>
+```
+
+#### GM Commands
+
+* List of commands
+```
+.commands
+```
+
+* your player info
+```
+.pinfo
+```
+
+* Teleport
+```
+.tele <location>
+```
+
+* Go to player
+```
+.goname <character-name>
+```
+
+* Player to self
+```
+.namego <character-name>
+```
+
+* Modify speed
+```
+.modify aspeed <rate>
+```
+
+* Find all accounts and characters on the server (change empty string to search string to narrow down results)
+```
+.lookup player account ""
+```
+
+* Server commands
+```
+.server
+```
+
+* Banning players et al
+```
+.ban
+.kick
+.baninfo
+.banlist
+```
