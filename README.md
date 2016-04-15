@@ -1,11 +1,14 @@
 # Celestis 1.12.1 Server Overview
 
-**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
+**Table of Contents**
 
-- [Celestis 1.12.1 Server Overview](#)
+- [Celestis 1.12.1 Server Overview](#celestis-1121-server-overview)
     - [Introduction](#)
+
             - [What is CMaNGOS](#)
+
             - [What is Celestis](#)
+
     - [Hypothetical CMaNGOS Installation](#)
         - [Specific Guide](#)
         - [We're done!](#)
