@@ -10,7 +10,9 @@
 
 Celestis is a fork of the CMaNGOS server emulation software with a guide to installation. Celestis is not changed much, but rather emphasis is put on hypothetical installation first which is what this guide is for. Celestis takes a look into hypothetical installation of a classic-server.
 
-## Hypothetical Installation
+## Hypothetical CMaNGOS Installation
+
+### Specific Guide
 
 This guide is mostly complete with a few changes listed below: [CMaNGOS Guide](https://github.com/cmangos/issues/wiki/Installation-Instructions)
 
@@ -56,6 +58,11 @@ make install
 cp /home/mangos/mangos/src/mangosd/mangosd.conf.dist.in /home/mangos/run/etc/mangosd.conf
 cp /home/mangos/mangos/src/realmd/realmd.conf.dist.in /home/mangos/run/etc/realmd.conf
 cp /home/mangos/mangos/src/game/AuctionHouseBot/ahbot.conf.dist.in /home/mangos/run/etc/ahbot.conf
+```
+
+* edit mangosd.conf and change this line to:
+```
+DataDir = "/home/mangos/run"
 ```
 
 5) Extracting the map files
@@ -171,3 +178,35 @@ CTRL+A CTRL+D
 [First Login](https://github.com/cmangos/issues/wiki/Installation-Instructions#first-login)
 
 ### We're done!
+
+## WoW Client Installation Windows, OS X, GNU/Linux
+
+* Download your vanilla 1.12.1 WoW client such as [here](https://www.reddit.com/r/ProgrammerHumor/comments/4evqzc/they_say_that_if_you_hold_a_unix_shell_up_to_your/)
+
+#### Windows
+
+Edit your realmlist.wtf to your EC2 server address and click wow.exe to play
+
+#### OS X
+
+Edit your realmlist.wtf to your EC2 server address
+
+```
+brew tap caskroom/cask
+brew cask install java xquartz
+brew install wine
+wine wow.exe
+```
+
+#### GNU/Linux
+
+Edit your realmlist.wtf to your EC2 server address
+
+```
+sudo add-apt-repository ppa:ubuntu-wine/ppa -y && sudo apt-get update && sudo apt-get install wine
+wine wow.exe
+```
+
+## WoW Addons
+
+## WoW Useful Commands
