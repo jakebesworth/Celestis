@@ -31,7 +31,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
 #### What is Celestis
 
-Celestis is a fork of the CMaNGOS server emulation software with a guide to installation. Celestis is not changed much, but rather emphasis is put on hypothetical installation first which is what this guide is for. Celestis takes a look into hypothetical installation of a classic-server.
+[Celestis](http://stargate.wikia.com/wiki/Celestis) is the name of the hypothetical server, a fork of the CMaNGOS server emulation software written as a hypothetical installation guide with server and game related tips. Celestis takes a look into hypothetical installation of a CMaNGOS classic-server.
 
 ## Hypothetical CMaNGOS Installation
 
@@ -237,6 +237,8 @@ wine wow.exe
 
 * [Here](http://www.vanilla-addons.com/dls/) is a decent website with many vanilla addons, it's a tad slow, but they work.
 
+* A better github link can be found [here](https://github.com/ericraio/vanilla-wow-addons)
+
 #### Installing Addons
 
 * Very simple, extract your addon, and drag it into your WoW/Interface/AddOns directory
@@ -252,6 +254,9 @@ My personal choices are:
 * Bartender2 (Action Bars)
 * Questie (Quest helper - this is a necessity)
 * eCastingBar (Casting Bar - similar to quartz)
+* ag_UnitFrames (does top portrait, health bars, mana bars, numbers on bars)
+* OneBag (displays all bags, lets you drag backpack)
+* BEB (better, experience bar, pretty exp bar)
 
 Still looking for a Sexymap 1.12.1 but I'll keep looking.
 
