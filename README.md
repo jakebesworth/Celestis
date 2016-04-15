@@ -175,13 +175,14 @@ CTRL+A CTRL+D
 ```
 
 [Creating first account](https://github.com/cmangos/issues/wiki/Installation-Instructions#creating-first-account)
+
 [First Login](https://github.com/cmangos/issues/wiki/Installation-Instructions#first-login)
 
 ### We're done!
 
 ## WoW Client Installation Windows, OS X, GNU/Linux
 
-* Download your vanilla 1.12.1 WoW client such as [here](https://www.reddit.com/r/ProgrammerHumor/comments/4evqzc/they_say_that_if_you_hold_a_unix_shell_up_to_your/)
+* Download your vanilla 1.12.1 WoW client such as [here](https://redd.it/2wc63i)
 
 #### Windows
 
