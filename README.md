@@ -257,6 +257,8 @@ My personal choices are:
 * ag_UnitFrames (does top portrait, health bars, mana bars, numbers on bars)
 * OneBag (displays all bags, lets you drag backpack)
 * BEB (better, experience bar, pretty exp bar)
+* informant (in the auctioneer package, shows items sell value)
+* EquipCompare (Show items against what you're wearing)
 
 Still looking for a Sexymap 1.12.1 but I'll keep looking.
 
