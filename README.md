@@ -50,7 +50,7 @@ libssl-dev grep binutils zlibc libc6 libbz2-dev cmake subversion vim libboost-al
 3) First thing we should do is setup our directory structure
 
 * Create user mangos and change login to them
-```
+```bash
 useradd -m -d /home/mangos -c "MANGoS" -g mangos mangos
 passwd mangos
 su - mangos
