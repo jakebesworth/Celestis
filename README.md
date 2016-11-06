@@ -42,7 +42,7 @@ This guide is mostly complete with a few changes listed below: [CMaNGOS Guide](h
 1) We'll be using an AWS t2.micro [EC2 instance](https://aws.amazon.com/ec2/instance-types/) which should allow probably 5-10 players with no issues
 
 2) We'll be using AWS Ubuntu 14.04.4 LTS build
-```
+```bash
 sudo apt-get install build-essential gcc g++ automake git-core \
 autoconf make patch libmysql++-dev mysql-server libtool \
 libssl-dev grep binutils zlibc libc6 libbz2-dev cmake subversion vim libboost-all-dev
@@ -59,7 +59,7 @@ cd /home/mangos
 
 * Clone repositories
 
-```
+```bash
 git clone git://github.com/cmangos/mangos-classic.git mangos
 git clone git://github.com/ACID-Scripts/Classic.git acid
 git clone git://github.com/classicdb/database.git classicdb
@@ -69,7 +69,7 @@ mkdir run build
 4) Now we can compile the build
 
 * make
-```
+```bash
 cd build
 cmake ../mangos -DCMAKE_INSTALL_PREFIX=/home/mangos/run -DDEBUG=0
 make
@@ -77,14 +77,14 @@ make install
 ```
 
 * config files
-```
+```bash
 cp /home/mangos/mangos/src/mangosd/mangosd.conf.dist.in /home/mangos/run/etc/mangosd.conf
 cp /home/mangos/mangos/src/realmd/realmd.conf.dist.in /home/mangos/run/etc/realmd.conf
 cp /home/mangos/mangos/src/game/AuctionHouseBot/ahbot.conf.dist.in /home/mangos/run/etc/ahbot.conf
 ```
 
 * edit mangosd.conf and change this line to:
-```
+```bash
 DataDir = "/home/mangos/run"
 ```
 
@@ -92,7 +92,7 @@ DataDir = "/home/mangos/run"
 
 * This part is listed in [this section](https://github.com/cmangos/issues/wiki/Installation-Instructions#extract-files-from-the-client) of the guide. I would highly recomend just installing your WoW client on windows, and running those scripts to get your needed `vmaps maps dbc` folders. Note that the scripts seem not to include .exe extensions to files, which should be added. Also note you need to extract from a vanilla 1.12.1 client.
 
-```
+```bash
 mv vmaps /home/mangos/run/
 mv maps /home/mangos/run/
 mv dbc /home/mangos/run/
@@ -100,7 +100,7 @@ mv dbc /home/mangos/run/
 
 6) Importing Databases
 
-```
+```bash
 mysql -u root -p < /home/mangos/mangos/sql/create/db_create_mysql.sql
 mysql -u root -p mangos < /home/mangos/mangos/sql/base/mangos.sql
 mysql -uroot -p characters < /home/mangos/mangos/sql/base/characters.sql
@@ -110,7 +110,7 @@ mysql -uroot -p realmd < /home/mangos/mangos/sql/base/realmd.sql
 7) Initializing the world
 
 * Initialize Installer config
-```
+```bash
 cd /home/mangos/classicdb
 ./InstallFullDB.sh
 vim InstallFullDB.config
@@ -118,27 +118,27 @@ vim InstallFullDB.config
 
 * At this point add to the following lines:
 
-```
+```bash
 CORE_PATH="/home/mangos/mangos"
 ACID_PATH="/home/mangos/acid"
 ```
 
 * Install
-```
+```bash
 ./InstallFullDB.sh
 cd ..
 ```
 
 8) More database stuff
 
-```
+```bash
 mysql -u root -p mangos < /home/mangos/mangos/sql/scriptdev2/scriptdev2.sql
 mysql -u root -p mangos < /home/mangos/acid/*.sql
 ```
 
 9) Setting up your public ip address, and opening ports
 
-```
+```bash
 mysql -u root
 USE realmd;
 SELECT * FROM realmlist;
@@ -148,7 +148,7 @@ exit;
 
 * From within your EC2 instance Security Group add 2 inbound rules
 
-```
+```bash
 Custom TCP Rule     TCP     3724        Anywhere        0.0.0.0/0
 Custom TCP Rule     TCP     8085        Anywhere        0.0.0.0/0
 ```
@@ -162,14 +162,14 @@ Custom TCP Rule     TCP     8085        Anywhere        0.0.0.0/0
 * First we need to make 2 files to run our server
 
 * /home/mangos/realmd.sh
-```
+```bash
 #!/usr/bin/env sh
 
 /home/mangos/run/bin/realmd -c /home/mangos/run/etc/realmd.conf
 ```
 
 * /home/mangos/mangosd.sh
-```
+```bash
 #!/usr/bin/env sh
 
 /home/mangos/run/bin/mangosd -c /home/mangos/run/etc/mangosd.conf -a /home/mangos/run/etc/ahbot.conf
@@ -177,7 +177,7 @@ Custom TCP Rule     TCP     8085        Anywhere        0.0.0.0/0
 
 * Initial run of the server
 
-```
+```bash
 su - mangos
 script /dev/null
 screen
@@ -190,7 +190,7 @@ CTRL+A CTRL+D
 
 * How to get back into our SCREEN session
 
-```
+```bash
 su - mangos
 script /dev/null
 screen -r
@@ -226,7 +226,7 @@ wine wow.exe
 
 Edit your realmlist.wtf to your EC2 server address
 
-```
+```bash
 sudo add-apt-repository ppa:ubuntu-wine/ppa -y && sudo apt-get update && sudo apt-get install wine
 wine wow.exe
 ```
@@ -269,7 +269,7 @@ Still looking for a Sexymap 1.12.1 but I'll keep looking.
 
 From within game, in the chat box type:
 
-```
+```bash
 .account password <old-password> <new-password> <new-password>
 ```
 
