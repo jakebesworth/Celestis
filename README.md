@@ -2,24 +2,27 @@
 
 ## Table of Contents
 
-  * [Celestis 1.12.1 Server Overview](#celestis-1121-server-overview)
-    * [Introduction](#introduction)
-        * [What is CMaNGOS](#what-is-cmangos)
-        * [What is Celestis](#what-is-celestis)
-    * [Hypothetical CMaNGOS Installation](#hypothetical-cmangos-installation)
-      * [Specific Guide](#specific-guide)
-      * [We're done!](#were-done)
-    * [WoW Client Installation Windows, OS X, GNU/Linux](#wow-client-installation-windows-os-x-gnulinux)
-        * [Windows](#windows)
-        * [OS X](#os-x)
-        * [GNU/Linux](#gnulinux)
-    * [WoW Addons](#wow-addons)
-        * [Downloading addons](#downloading-addons)
-        * [Installing Addons](#installing-addons)
-        * [Useful Addons](#useful-addons)
-    * [WoW Useful Commands](#wow-useful-commands)
-        * [Change password](#change-password)
-        * [GM Commands](#gm-commands)
+   * [Celestis 1.12.1 Server Overview](#celestis-1121-server-overview)
+      * [Table of Contents](#table-of-contents)
+      * [Introduction](#introduction)
+            * [What is CMaNGOS](#what-is-cmangos)
+            * [What is Celestis](#what-is-celestis)
+      * [Hypothetical CMaNGOS Installation](#hypothetical-cmangos-installation)
+         * [Specific Guide](#specific-guide)
+            * [Setting up on Virtualbox](#setting-up-on-virtualbox)
+            * [Setting up on AWS](#setting-up-on-aws)
+         * [We're done!](#were-done)
+      * [WoW Client Installation Windows, OS X, GNU/Linux](#wow-client-installation-windows-os-x-gnulinux)
+            * [Windows](#windows)
+            * [OS X](#os-x)
+            * [GNU/Linux](#gnulinux)
+      * [WoW Addons](#wow-addons)
+            * [Downloading addons](#downloading-addons)
+            * [Installing Addons](#installing-addons)
+            * [Useful Addons](#useful-addons)
+      * [WoW Useful Commands](#wow-useful-commands)
+            * [Change password](#change-password)
+            * [GM Commands](#gm-commands)
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
@@ -39,20 +42,31 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
 This guide is mostly complete with a few changes listed below: [CMaNGOS Guide](https://github.com/cmangos/issues/wiki/Installation-Instructions)
 
+#### Setting up on Virtualbox
+
+TODO~
+
+- Virtual Box Guest Additions
+- Password and username of MySQL mangos and mangos
+- mysqld --skip-grant-tables
+
+#### Setting up on AWS
+
 1) We'll be using an AWS t2.micro [EC2 instance](https://aws.amazon.com/ec2/instance-types/) which should allow probably 5-10 players with no issues
 
 2) We'll be using AWS Ubuntu 14.04.4 LTS build
 ```bash
-sudo apt-get install build-essential gcc g++ automake git-core \
-autoconf make patch libmysql++-dev mysql-server libtool \
-libssl-dev grep binutils zlibc libc6 libbz2-dev cmake subversion vim libboost-all-dev
+sudo apt-get update && sudo apt-get upgrade
+sudo apt-get install build-essential gcc g++ automake git-core autoconf make patch libmysql++-dev mysql-server libtool libssl-dev grep binutils zlibc libc6 libbz2-dev cmake subversion vim libboost-all-dev screen
 ```
 3) First thing we should do is setup our directory structure
 
 * Create user mangos and change login to them
 ```bash
-useradd -m -d /home/mangos -c "MANGoS" -g mangos mangos
-passwd mangos
+sudo addgroup mangos
+sudo useradd -m -d /home/mangos -c "MANGoS" -g mangos mangos
+# Change password to mangos
+sudo passwd mangos
 su - mangos
 cd /home/mangos
 ```
@@ -83,7 +97,7 @@ cp /home/mangos/mangos/src/realmd/realmd.conf.dist.in /home/mangos/run/etc/realm
 cp /home/mangos/mangos/src/game/AuctionHouseBot/ahbot.conf.dist.in /home/mangos/run/etc/ahbot.conf
 ```
 
-* edit mangosd.conf and change this line to:
+* edit `/home/mangos/run/etc/mangosd.conf` and change this line to:
 ```bash
 DataDir = "/home/mangos/run"
 ```
@@ -141,7 +155,7 @@ mysql -u root -p mangos < /home/mangos/acid/*.sql
 ```bash
 mysql -u root
 USE realmd;
-SELECT * FROM realmlist;
+SELECT * FROM realmlist\G;
 UPDATE realmlist set name="my server name", address="my public EC2 address";
 exit;
 ```
