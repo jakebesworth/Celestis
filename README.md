@@ -13,16 +13,16 @@
             * [Setting up on AWS](#setting-up-on-aws)
          * [We're done!](#were-done)
       * [WoW Client Installation Windows, OS X, GNU/Linux](#wow-client-installation-windows-os-x-gnulinux)
-            * [Windows](#windows)
-            * [OS X](#os-x)
-            * [GNU/Linux](#gnulinux)
+         * [Windows](#windows)
+         * [OS X](#os-x)
+         * [GNU/Linux](#gnulinux)
       * [WoW Addons](#wow-addons)
-            * [Downloading addons](#downloading-addons)
-            * [Installing Addons](#installing-addons)
-            * [Useful Addons](#useful-addons)
+         * [Downloading addons](#downloading-addons)
+         * [Installing Addons](#installing-addons)
+         * [Useful Addons](#useful-addons)
       * [WoW Useful Commands](#wow-useful-commands)
-            * [Change password](#change-password)
-            * [GM Commands](#gm-commands)
+         * [Change password](#change-password)
+         * [GM Commands](#gm-commands)
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
@@ -220,12 +220,13 @@ CTRL+A CTRL+D
 ## WoW Client Installation Windows, OS X, GNU/Linux
 
 * Download your vanilla 1.12.1 WoW client such as [here](https://redd.it/2wc63i)
+* Note, this link is dead, you'll have to find it somewhere else
 
-#### Windows
+### Windows
 
 Edit your realmlist.wtf to your EC2 server address and click wow.exe to play
 
-#### OS X
+### OS X
 
 Edit your realmlist.wtf to your EC2 server address
 
@@ -236,7 +237,7 @@ brew install wine
 wine wow.exe
 ```
 
-#### GNU/Linux
+### GNU/Linux
 
 Edit your realmlist.wtf to your EC2 server address
 
@@ -247,18 +248,18 @@ wine wow.exe
 
 ## WoW Addons
 
-#### Downloading addons
+### Downloading addons
 
 * [Here](http://www.vanilla-addons.com/dls/) is a decent website with many vanilla addons, it's a tad slow, but they work.
 
 * A better github link can be found [here](https://github.com/ericraio/vanilla-wow-addons)
 
-#### Installing Addons
+### Installing Addons
 
 * Very simple, extract your addon, and drag it into your WoW/Interface/AddOns directory
 * From the character screen bottom left you can edit and add your new addons
 
-#### Useful Addons
+### Useful Addons
 
 * A really nice breakdown of useful addons can be found at this [forum](http://forum.twinstar.cz/showthread.php/91251-Useful-User-Experience-Addons-for-1-12)
 
@@ -279,7 +280,7 @@ Still looking for a Sexymap 1.12.1 but I'll keep looking.
 
 ## WoW Useful Commands
 
-#### Change password
+### Change password
 
 From within game, in the chat box type:
 
@@ -287,7 +288,7 @@ From within game, in the chat box type:
 .account password <old-password> <new-password> <new-password>
 ```
 
-#### GM Commands
+### GM Commands
 
 * List of commands
 ```
