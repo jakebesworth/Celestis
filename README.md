@@ -5,8 +5,8 @@
    * [Celestis 1.12.1 Server Overview](#celestis-1121-server-overview)
       * [Table of Contents](#table-of-contents)
       * [Introduction](#introduction)
-            * [What is CMaNGOS](#what-is-cmangos)
-            * [What is Celestis](#what-is-celestis)
+         * [What is CMaNGOS](#what-is-cmangos)
+         * [What is Celestis](#what-is-celestis)
       * [Hypothetical CMaNGOS Installation](#hypothetical-cmangos-installation)
          * [Specific Guide](#specific-guide)
             * [Setting up on Virtualbox](#setting-up-on-virtualbox)
@@ -28,11 +28,11 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
 ## Introduction
 
-#### What is CMaNGOS
+### What is CMaNGOS
 
 [Wiki](https://github.com/cmangos/issues/wiki)
 
-#### What is Celestis
+### What is Celestis
 
 [Celestis](http://stargate.wikia.com/wiki/Celestis) is the name of the hypothetical server, a fork of the CMaNGOS server emulation software written as a hypothetical installation guide with server and game related tips. Celestis takes a look into hypothetical installation of a CMaNGOS classic-server.
 
